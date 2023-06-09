@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordion Component</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* 
+      MAIN COLOR: #087f5b
+      GREY COLOR: #343a40
+      */
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: #ffffff;
+        line-height: 1;
+        background-color: rgb(92, 95, 95);
+      }
+      .accordion {
+        width: 700px;
+        margin: 100px auto;
+
+        /*flexbox*/
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .item {
+        box-shadow: 32px 16px 32px rgba(0, 0, 0, 0.2);
+        padding: 24px;
+        /* border-top: 8px solid; */
+
+        /*css grid*/
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        column-gap: 32px;
+        row-gap: 24px;
+      }
+      .number {
+        color: #868e96;
+      }
+      .number,
+      .text {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .icon {
+        width: 24px;
+        height: 24px;
+        float: right;
+      }
+      .hidden-box {
+        grid-column: 2/3;
+        display: none;
+      }
+      .hidden-box p {
+        line-height: 1.5;
+        font-size: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .hidden-box ul {
+        margin-left: 20px;
+        font-size: 16px;
+        color: #868e96;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .open {
+        border-top: 8px solid #08407f;
+      }
+      .open .hidden-box {
+        display: block;
+      }
+      .open .number,
+      .open .text {
+        color: #080a7f;
+      }
+      img{
+        height: 200px;
+        transform: scale(1.5);
+        border-radius: 15px;
+
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      }
+      .carousel{
+        background-color: #2ea2cf;
+        width: 800px;
+        margin: 100px auto;
+        padding-left: 136px;
+        padding-right: 42px;
+        border-radius: 8px;
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        gap: 86px;
+      }
+      .quote-text{
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.5;
+        margin-bottom: 32px;
+        margin-right: 10px;
+      }
+      .quote-author{
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+      .quote-job{
+        font-size: 12px;
+      }
+      .btn-l,
+      .btn-r{
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #fff;
+        border: none;
+        cursor: pointer;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .btn-l{
+        left: 30px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      }
+      .btn-r{
+        right: -4px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      }
+      .btn-icon{
+        width: 24px;
+        height: 24px;
+        stroke: #381ec7;
+      }
+      table{
+            width: 800px;
+            margin: 100px auto;
+            border: 1px solid #343a43;
+            font-size: 18px;
+            border-collapse: collapse;
+        }
+        th,
+        td{
+            /*border: 1px solid #343a43;*/
+            text-align: left;
+            padding: 16px 24px;
+            width: 25%;
+        }
+        thead th{
+            background-color: #10087f;
+            color: #FFF;
+        }
+        tbody tr:nth-child(odd){
+            background-color: #2d7dce;
+        }
+        tbody tr:nth-child(even){
+            background-color: #1c2733;
+        }
+    </style>
+    <head>
+      <body>
+        <div class="accordion">
+          <div class="item">
+            <p class="number">01</p>
+            <p class="text">Incoporate the essential data</p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+            <div class="hidden-box">
+              <p>
+                No one shall be subjected to arbitrary arrest, detention or exile.
+                Everyone is entitled in full equality to a fair and public hearing
+                by an independent and impartial tribunal, in the determination of
+                his rights and obligations and of any criminal charge against him.
+                No one shall be subjected to arbitrary interference with his
+                privacy, family, home or correspondence, nor to attacks upon his
+                honour and reputation. Everyone has the right to the protection of
+                the law against such interference or attacks.
+              </p>
+              <ul>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur fugit quia eius reprehenderit in odio molestiae sint
+                  necessitatibus maiores inventore architecto nostrum rem
+                  voluptatibus dolore consequuntur accusamus, quod facere! Expedita?
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur fugit quia eius reprehenderit in odio molestiae sint
+                  necessitatibus maiores inventore architecto nostrum rem
+                  voluptatibus dolore consequuntur accusamus, quod facere! Expedita?
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur fugit quia eius reprehenderit in odio molestiae sint
+                  necessitatibus maiores inventore architecto nostrum rem
+                  voluptatibus dolore consequuntur accusamus, quod facere! Expedita?
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur fugit quia eius reprehenderit in odio molestiae sint
+                  necessitatibus maiores inventore architecto nostrum rem
+                  voluptatibus dolore consequuntur accusamus, quod facere! Expedita?
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="item open">
+            <p class="number">02</p>
+            <p class="text">Incoporate the essential data</p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+            
+            <div class="hidden-box">
+              <p>
+                No one shall be subjected to arbitrary arrest, detention or exile.
+                Everyone is entitled in full equality to a fair and public hearing
+                by an independent and impartial tribunal, in the determination of
+                his rights and obligations and of any criminal charge against him.
+                No one shall be subjected to arbitrary interference with his
+                privacy, family, home or correspondence, nor to attacks upon his
+                honour and reputation. Everyone has the right to the protection of
+                the law against such interference or attacks.
+              </p>
+              <ul>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur fugit quia eius reprehenderit in odio molestiae sint
+                  necessitatibus maiores inventore architecto nostrum rem
+                  voluptatibus dolore consequuntur accusamus, quod facere! Expedita?
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur fugit quia eius reprehenderit in odio molestiae sint
+                  necessitatibus maiores inventore architecto nostrum rem
+                  voluptatibus dolore consequuntur accusamus, quod facere! Expedita?
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur fugit quia eius reprehenderit in odio molestiae sint
+                  necessitatibus maiores inventore architecto nostrum rem
+                  voluptatibus dolore consequuntur accusamus, quod facere! Expedita?
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur fugit quia eius reprehenderit in odio molestiae sint
+                  necessitatibus maiores inventore architecto nostrum rem
+                  voluptatibus dolore consequuntur accusamus, quod facere! Expedita?
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="item">
+            <p class="number">03</p>
+            <p class="text">Incoporate the essential data</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+            <div class="hidden-box">
+              <p>
+                No one shall be subjected to arbitrary arrest, detention or exile.
+                Everyone is entitled in full equality to a fair and public hearing
+                by an independent and impartial tribunal, in the determination of
+                his rights and obligations and of any criminal charge against him.
+                No one shall be subjected to arbitrary interference with his
+                privacy, family, home or correspondence, nor to attacks upon his
+                honour and reputation. Everyone has the right to the protection of
+                the law against such interference or attacks.
+              </p>
+              <ul>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur fugit quia eius reprehenderit in odio molestiae sint
+                  necessitatibus maiores inventore architecto nostrum rem
+                  voluptatibus dolore consequuntur accusamus, quod facere! Expedita?
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur fugit quia eius reprehenderit in odio molestiae sint
+                  necessitatibus maiores inventore architecto nostrum rem
+                  voluptatibus dolore consequuntur accusamus, quod facere! Expedita?
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur fugit quia eius reprehenderit in odio molestiae sint
+                  necessitatibus maiores inventore architecto nostrum rem
+                  voluptatibus dolore consequuntur accusamus, quod facere! Expedita?
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur fugit quia eius reprehenderit in odio molestiae sint
+                  necessitatibus maiores inventore architecto nostrum rem
+                  voluptatibus dolore consequuntur accusamus, quod facere! Expedita?
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="carousel">
+        <img src="mario.avif" alt="Mario">
+        <blockquote class="quote">
+        <p class="quote-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolorem odit quis voluptatem sed maxime iure, quia sapiente dolore ipsam quos facere nulla consequuntur aperiam unde in quod expedita corporis!</p>
+        <p class="quote-author">Mario</p>
+        <p class="quote-job">Adventurer</p>
+        </blockquote>
+        <button class="btn-l">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+        </button>
+        <button class="btn-r">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+      <table>
+        <thead>
+            <tr>
+                <th>Chair</th>
+                <th>Chair</th>
+                <th>Chair</th>
+                <th>Chair</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Width</th>
+                <td>50cm</td>
+                <td>50cm</td>
+                <td>50cm</td>
+            </tr>
+            <tr>
+                <th>Width</th>
+                <td>50cm</td>
+                <td>50cm</td>
+                <td>50cm</td>
+            </tr>
+            <tr>
+                <th>Width</th>
+                <td>50cm</td>
+                <td>50cm</td>
+                <td>50cm</td>
+            </tr>
+            <tr>
+                <th>Width</th>
+                <td>50cm</td>
+                <td>50cm</td>
+                <td>50cm</td>
+            </tr>
+        </tbody>
+    </table>
+      </body>
+    </head>
